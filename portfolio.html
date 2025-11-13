@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <a href="Mohit_Parashar_Resume.pdf" target="_blank" class="resume-btn">📄 View Resume</a>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohit Parashar - Portfolio</title>
@@ -13,6 +15,26 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
+    /* ======= RESUME BUTTON ======= */
+    .resume-btn {
+      display: inline-block;
+      margin-top: 15px;
+      background: linear-gradient(90deg, #7209b7, #4361ee);
+      color: white;
+      padding: 10px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(67, 97, 238, 0.4);
+    }
+
+    .resume-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(114, 9, 183, 0.5);
+      background: linear-gradient(90deg, #5e60ce, #7400b8);
+    }
+
 
     body {
       font-family: "Poppins", sans-serif;
@@ -20,6 +42,13 @@
       color: #2a2a2a;
       line-height: 1.7;
       overflow-x: hidden;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    /* ======= DARK MODE ======= */
+    body.dark-mode {
+      background: linear-gradient(135deg, #2b2b3d, #3a0ca3, #7209b7);
+      color: #f1f1f1;
     }
 
     /* ======= HEADER ======= */
@@ -35,20 +64,20 @@
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+      transition: background 0.5s;
     }
 
     header img {
-      width: 230px;              /* Increased size */
-      height: 220px;             /* Increased size */
+      width: 230px;
+      height: 230px;
       border-radius: 50%;
       border: 5px solid #fff;
       object-fit: cover;
-      object-position: center top; /* Zooms in a bit vertically */
+      object-position: center top;
       margin-bottom: 20px;
       box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
       animation: float 4s ease-in-out infinite;
     }
-
 
     @keyframes float {
       0% { transform: translateY(0); }
@@ -66,6 +95,17 @@
       color: #dcdcdc;
       max-width: 600px;
       margin: 10px auto;
+    }
+
+    #themeToggle {
+      margin-top: 20px;
+      background: #2b2b2b;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     /* ======= NAVIGATION ======= */
@@ -131,7 +171,6 @@
       margin-bottom: 15px;
       color: #3a0ca3;
       position: relative;
-      text-shadow: 0 0 5px rgba(58, 12, 163, 0.1);
     }
 
     section h2::after {
@@ -142,11 +181,6 @@
       background-color: #7209b7;
       margin: 8px auto;
       border-radius: 2px;
-    }
-
-    section p {
-      color: #333;
-      font-size: 1.05em;
     }
 
     ul, ol {
@@ -202,11 +236,10 @@
     }
 
     button {
-      width: 100%;
       background: linear-gradient(90deg, #4361ee, #7209b7);
       color: #fff;
       border: none;
-      padding: 12px;
+      padding: 10px 15px;
       border-radius: 8px;
       font-weight: bold;
       font-size: 1em;
@@ -217,6 +250,31 @@
     button:hover {
       transform: translateY(-3px);
       box-shadow: 0 0 15px rgba(114, 9, 183, 0.4);
+    }
+
+    /* ======= TASK MANAGER ======= */
+    #taskList {
+      margin-top: 20px;
+      text-align: left;
+      list-style: none;
+      padding: 0;
+    }
+
+    #taskList li {
+      background: #fff;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-left: 5px solid #7209b7;
+    }
+
+    #taskList li.completed {
+      text-decoration: line-through;
+      color: gray;
+      background: #e8e8e8;
     }
 
     /* ======= FOOTER ======= */
@@ -237,23 +295,41 @@
     footer a:hover {
       color: #fb6f92;
     }
+    /* ======= FIX: Dark Mode Section Styling ======= */
+  body.dark-mode section {
+    background: #1e1e2f; /* darker background for contrast */
+    color: #f1f1f1; /* light text for readability */
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+  }
 
-    /* ======= RESPONSIVE ======= */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        padding: 60px 20px;
-      }
+  body.dark-mode section h2 {
+    color: #bb86fc; /* soft purple heading */
+  }
 
-      header img {
-        width: 150px;
-        height: 150px;
-      }
+  body.dark-mode section a {
+    color: #80dfff;
+  }
 
-      section {
-        padding: 25px;
-      }
-    }
+  body.dark-mode section a:hover {
+    color: #ff79c6;
+  }
+
+  body.dark-mode input,
+  body.dark-mode textarea {
+    background: #2b2b3b;
+    color: #fff;
+    border-color: #555;
+  }
+
+  body.dark-mode input::placeholder,
+  body.dark-mode textarea::placeholder {
+    color: #bbb;
+  }
+
+  body.dark-mode button {
+    background: linear-gradient(90deg, #5e60ce, #7400b8);
+  }
+
   </style>
 </head>
 <body>
@@ -264,6 +340,7 @@
     <div>
       <h1>Mohit Parashar</h1>
       <p>Aspiring Web Developer | Tech Enthusiast | Problem Solver</p>
+      <button id="themeToggle">🌙 Toggle Dark/Light Mode</button>
     </div>
   </header>
 
@@ -273,6 +350,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#taskmanager">Task Manager</a></li>
       <li><a href="#certificates">Certificates</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -282,14 +360,12 @@
   <main>
     <section id="about">
       <h2>About Me</h2>
-      <p>
-        I am an enthusiastic B.Tech student at Vellore Institute of Technology (Vellore campus) with a 
+      <p>I am an enthusiastic B.Tech student at Vellore Institute of Technology (Vellore campus) with a 
 Computer Science and Engineering background, with a strong foundation in programming, data 
 structures, and front-end development. I have hands-on experience with languages like C, C++, HTML, 
 and CSS and am passionate about building efficient, scalable, and user-friendly solutions. With a keen 
 interest in emerging technologies such as machine learning, web development, and system design, I 
-aim to contribute to innovative projects and grow as a software engineer.
-      </p>
+aim to contribute to innovative projects and grow as a software engineer.</p>
     </section>
 
     <section id="skills">
@@ -297,45 +373,51 @@ aim to contribute to innovative projects and grow as a software engineer.
       <ul>
         <li>HTML, CSS, JavaScript</li>
         <li>Python and C++</li>
-        <li>Logical & Analytical Thinking</li>
         <li>Front-end Web Development</li>
         <li>Database & Back-end Basics</li>
-        <li>Machine Learning (beginner)</li>
       </ul>
     </section>
 
     <section id="projects">
       <h2>My Projects</h2>
       <ol>
-        <li><a href="#"> Personal Portfolio Website</a></li>
-        <li><a href="#"> Music Player App</a></li>
-        <li><a href="#">Micro-Kernel OS Simulator</a></li>
+        <li><a href="#">Personal Portfolio Website</a></li>
+        <li><a href="#">Music Player App</a></li>
       </ol>
+    </section>
+
+    <!-- ======= INTERACTIVE TASK MANAGER ======= -->
+    <section id="taskmanager">
+      <h2>Interactive Task Manager 🗂️</h2>
+      <p>Add, mark complete, or delete your daily tasks below!</p>
+
+      <form id="taskForm">
+        <input type="text" id="taskInput" placeholder="Enter a new task..." required>
+        <button type="submit">➕ Add Task</button>
+      </form>
+
+      <ul id="taskList"></ul>
     </section>
 
     <section id="certificates">
       <h2>My Certificates</h2>
       <ol>
         <li><a href="#">Gen AI using IBM WatsonX</a></li>
-        <li><a href="#">Industrial Internship at Technology Information, Forecasting and Assessment Council (TIFAC), 
-VITVellore</a></li>
+        <li><a href="#">Industrial Internship at TIFAC, VIT Vellore</a></li>
       </ol>
     </section>
 
     <section id="contact">
       <h2>Contact Me</h2>
-      <p>Let’s connect — I’m always open to learning and collaborating on new ideas!</p>
+      <p>Let’s connect — I’m always open to collaborating on new ideas!</p>
 
-      <form>
+      <form id="contactForm">
         <label for="name">Name</label>
         <input type="text" id="name" placeholder="Your name" required>
-
         <label for="email">Email</label>
         <input type="email" id="email" placeholder="Your email" required>
-
         <label for="message">Message</label>
         <textarea id="message" rows="4" placeholder="Your message here"></textarea>
-
         <button type="submit">Send Message 💬</button>
       </form>
     </section>
@@ -343,13 +425,71 @@ VITVellore</a></li>
 
   <!-- ======= FOOTER ======= -->
   <footer>
-    <p>© 2025 Mohit Parashar | Built with 💜 using HTML & CSS</p>
+    <p>© 2025 Mohit Parashar | Built with 💜 using HTML, CSS & JS</p>
     <p>
-      Connect with me on
-      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a> |
-      <a href="https://github.com/" target="_blank">GitHub</a>
+      Connect with me on  
+      <a href="https://www.linkedin.com/in/parasharmohit/" target="_blank">🔗 LinkedIn</a> |
+      <a href="https://github.com/mohit-parashar" target="_blank">💻 GitHub</a>
     </p>
   </footer>
 
+  <!-- ======= JAVASCRIPT ======= -->
+  <script>
+    // 🌙 Toggle Theme
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      themeToggle.textContent = document.body.classList.contains("dark-mode")
+        ? "☀️ Switch to Light Mode"
+        : "🌙 Toggle Dark/Light Mode";
+    });
+
+    // 📨 Form Validation
+    document.getElementById("contactForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) return alert("⚠️ Please fill in all fields!");
+      if (!email.includes("@")) return alert("❌ Enter a valid email!");
+
+      alert(`✅ Thank you, ${name}! Your message has been sent.`);
+      e.target.reset();
+    });
+
+    // ✅ Task Manager Script
+    const taskForm = document.getElementById("taskForm");
+    const taskInput = document.getElementById("taskInput");
+    const taskList = document.getElementById("taskList");
+
+    taskForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const taskText = taskInput.value.trim();
+      if (taskText === "") return;
+
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <span>${taskText}</span>
+        <div>
+          <button class="complete-btn">✔️</button>
+          <button class="delete-btn">🗑️</button>
+        </div>
+      `;
+
+      taskList.appendChild(li);
+      taskInput.value = "";
+
+      // Mark complete
+      li.querySelector(".complete-btn").addEventListener("click", () => {
+        li.classList.toggle("completed");
+      });
+
+      // Delete task
+      li.querySelector(".delete-btn").addEventListener("click", () => {
+        li.remove();
+      });
+    });
+  </script>
 </body>
 </html>
